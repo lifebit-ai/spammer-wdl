@@ -27,18 +27,18 @@ workflow spammer_wdl {
 
 task task_A {
     input {
-        String processATimeRange
-        Int numberFilesForProcessA
-        Int processATimeBetweenFileCreationInSecs
+        String taskATimeRange
+        Int numberFilesFortaskA
+        Int taskATimeBetweenFileCreationInSecs
     }
     command <<<
-        # Simulate the time the processes takes to finish
-        timeToWait=$(shuf -i ~{processATimeRange} -n 1)
+        # Simulate the time the task takes to finish
+        timeToWait=$(shuf -i ~{taskATimeRange} -n 1)
         
-        for i in {1..~{numberFilesForProcessA}}
+        for i in {1..~{numberFilesFortaskA}}
         do
         echo test > file_${i}.txt
-        sleep ~{processATimeBetweenFileCreationInSecs}
+        sleep ~{taskATimeBetweenFileCreationInSecs}
         done
         sleep $timeToWait
     >>>
