@@ -1,0 +1,6 @@
+{
+  "spammer_wdl.task_A.processATimeBetweenFileCreationInSecs": "0",
+  "spammer_wdl.task_A.processATimeRange": "1-2",
+  "spammer_wdl.task_A.numberFilesForProcessA": "1"
+}
+
