@@ -25,8 +25,16 @@ workflow spammer_wdl {
 # Task A
 # -------
 
-task task_A{
+task task_A {
+    input {
+        String processATimeRange
+        Int numberFilesForProcessA
+        Int processATimeBetweenFileCreationInSecs
+    }
     command {
-    echo "hello"
+        # Simulate the time the processes takes to finish
+        timeToWait=\$(shuf -i ${processATimeRange} -n 1)
     }
 }
+
+
