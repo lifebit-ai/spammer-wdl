@@ -31,9 +31,19 @@ task task_A {
         Int numberFilesForProcessA
         Int processATimeBetweenFileCreationInSecs
     }
-    command {
+    command <<<
         # Simulate the time the processes takes to finish
-        timeToWait=\$(shuf -i ${processATimeRange} -n 1)
+        timeToWait=\$(shuf -i ~{processATimeRange} -n 1)
+        
+        for i in {1..~{numberFilesForProcessA}}
+        do
+            do echo test > file_\${i}.txt
+            sleep ${processATimeBetweenFileCreationInSecs}
+        done
+        sleep \$timeToWait
+    >>>
+    runtime {
+        docker:"ubuntu:18.10"
     }
 }
 
