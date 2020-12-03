@@ -1,6 +1,8 @@
 {
   "spammer_wdl.task_A.taskATimeBetweenFileCreationInSecs": "0",
   "spammer_wdl.task_A.taskATimeRange": "1-2",
-  "spammer_wdl.task_A.numberFilesFortaskA": "2"
+  "spammer_wdl.task_B.processBWriteToDiskMb": "10",
+  "spammer_wdl.task_A.numberFilesFortaskA": "2",
+  "spammer_wdl.task_B.taskBTimeRange": "2-3"
 }
 
