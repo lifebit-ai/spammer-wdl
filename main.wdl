@@ -51,7 +51,7 @@ task task_A {
         File output_file_1 = "file_1.txt"
     }
     runtime {
-        docker:"ubuntu:18.10"
+        docker:"quay.io/lifebitai/ubuntu:18.10"
     }
 }
 
@@ -78,5 +78,4 @@ task task_B {
         docker:"ubuntu:18.10"
     }
 }
-
 
