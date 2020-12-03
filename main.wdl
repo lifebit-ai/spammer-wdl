@@ -42,6 +42,9 @@ task task_A {
         done
         sleep $timeToWait
     >>>
+    output{
+        Array[File] output_files = glob("*.txt")
+    }
     runtime {
         docker:"ubuntu:18.10"
     }
