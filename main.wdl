@@ -75,7 +75,6 @@ task task_B {
     dd if=/dev/urandom of=newfile bs=1M count=~{processBWriteToDiskMb}
     >>>
     runtime {
-        docker:"ubuntu:18.10"
+        docker:"quay.io/lifebitai/ubuntu:18.10"
     }
 }
-
