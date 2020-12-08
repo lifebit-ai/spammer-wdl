@@ -9,6 +9,7 @@ jobs:
       - uses: actions/checkout@v1
       - name: Install Cromwell
         run: |
+          sudo apt-get install default-jre
           mkdir cromwell && cd cromwell
           wget https://github.com/broadinstitute/cromwell/releases/download/53.1/cromwell-53.1.jar
           wget https://github.com/broadinstitute/cromwell/releases/download/53.1/womtool-53.1.jar
