@@ -22,7 +22,7 @@ Success!
 
 To run the pipeline:
 ```
-$ java -jar ~/cromwell/cromwell-53.1.jar run main.wdl -i inputs.json
+$ java -jar ~/cromwell/cromwell-53.1.jar run main.wdl -i inputs.json -o options.json
 ```
 
 
