@@ -44,7 +44,7 @@ task task_A {
         Int taskATimeBetweenFileCreationInSecs
     }
     command <<<
-        # Simulate the time the tasks takes to finish
+        # Simulate the time the task takes to finish
         timeToWait=$(shuf -i ~{taskATimeRange} -n 1)
         
         for i in {1..~{numberFilesFortaskA}}
@@ -75,7 +75,7 @@ task task_B {
         Int processBWriteToDiskMb 
     }
     command <<<
-    # Simulate the time the tasks takes to finish
+    # Simulate the time the task takes to finish
     timeToWait=$(shuf -i ~{taskBTimeRange} -n 1)
     
     sleep $timeToWait
@@ -95,11 +95,10 @@ task task_C {
         String taskCTimeRange
     }
     command <<<
-    # Simulate the time the tasks takes to finish
+    # Simulate the time the task takes to finish
     timeToWait=$(shuf -i ~{taskCTimeRange} -n 1)
     
     sleep $timeToWait
-    
     >>>
 }
 
@@ -115,11 +114,10 @@ task task_D {
         String taskDTimeRange
     }
     command <<<
-    # Simulate the time the tasks takes to finish
+    # Simulate the time the task takes to finish
     timeToWait=$(shuf -i ~{taskDTimeRange} -n 1)
     
     sleep $timeToWait
-    
     >>>
 }
 
