@@ -26,6 +26,14 @@ java -jar ~/cromwell/womtool-53.1.jar validate main.wdl
 Success!
 ```
 
+## To generate a pipeline graph (if need be)
+
+If one wants to visualize a graph of this plot, one can run:
+```
+java -jar ~/cromwell/womtool-53.1.jar graph main.wdl > main.dot
+```
+The resulting file can then be pasted into a tool like `Graphviz online`: https://dreampuf.github.io/GraphvizOnline/. 
+
 ## Run the pipeline
 
 To run the pipeline:
