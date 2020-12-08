@@ -10,11 +10,10 @@ jobs:
       - name: Install Cromwell
         run: |
           sudo apt-get install default-jre
-          mkdir cromwell && cd cromwell
           wget https://github.com/broadinstitute/cromwell/releases/download/53.1/cromwell-53.1.jar
           wget https://github.com/broadinstitute/cromwell/releases/download/53.1/womtool-53.1.jar
       - name: Run lifebit-ai/spammer-wdl
         run: |
-          java -jar ~/cromwell/cromwell-53.1.jar run main.wdl -i inputs.json -o options.json
+          java -jar cromwell-53.1.jar run main.wdl -i inputs.json -o options.json
 
 
