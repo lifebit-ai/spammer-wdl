@@ -6,6 +6,24 @@ This pipeline is the WDL equivalent of `lifebit-ai/spammer-nf`.
 
 # 2 - Quick start
 
+## Installation instructions and assumptions
+
+Like for `Nextflow` pipelines, one should install `Cromwell` "locally", seperate from the actual pipeline dependencies which will obtained via one or more containers. The installation instructions used to install and run `Cromwell` for the development of this pipeline are as follows:
+
+```
+$ cd
+$ mkdir cromwell && cd cromwell
+$ wget https://github.com/broadinstitute/cromwell/releases/download/53.1/cromwell-53.1.jar
+$ wget https://github.com/broadinstitute/cromwell/releases/download/53.1/womtool-53.1.jar
+```
+
+This means `Cromwell` can be called from anywhere using:
+```
+$ java -jar ~/cromwell/cromwell-53.1.jar [specific command]
+```
+
+Notably, `Cromwell` can also be installed via `conda`.
+
 ## Generate an input.json file
 
 Inputs are to this pipeline are supplied via an `inputs.json`. One can semi-automate its generation by running:
