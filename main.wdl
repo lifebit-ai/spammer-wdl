@@ -21,6 +21,10 @@ workflow spammer_wdl {
       input:
       input_file = task_A.output_file_1
   }
+  call task_C {
+      input:
+      input_file = task_A.output_file_2
+  }
 }
 
 
@@ -49,6 +53,7 @@ task task_A {
     output{
         Array[File] output_files = glob("*.txt")
         File output_file_1 = "file_1.txt"
+        File output_file_2 = "file_2.txt"
     }
     runtime {
         docker:"quay.io/lifebitai/ubuntu:18.10"
@@ -71,8 +76,31 @@ task task_B {
     # Simulate the time the tasks takes to finish
     timeToWait=$(shuf -i ~{taskBTimeRange} -n 1)
     
-    sleep \$timeToWait
+    sleep $timeToWait
     dd if=/dev/urandom of=newfile bs=1M count=~{processBWriteToDiskMb}
+    >>>
+    runtime {
+        docker:"quay.io/lifebitai/ubuntu:18.10"
+    }
+}
+
+
+
+# -------
+# Task C
+# -------
+
+task task_C {
+    input {
+        File input_file
+        String taskCTimeRange
+    }
+    command <<<
+    # Simulate the time the tasks takes to finish
+    timeToWait=$(shuf -i ~{taskCTimeRange} -n 1)
+    
+    sleep $timeToWait
+    
     >>>
     runtime {
         docker:"quay.io/lifebitai/ubuntu:18.10"
