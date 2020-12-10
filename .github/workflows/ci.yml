@@ -11,17 +11,11 @@ jobs:
         run: |
           wget https://github.com/broadinstitute/cromwell/releases/download/53.1/cromwell-53.1.jar
           wget https://github.com/broadinstitute/cromwell/releases/download/53.1/womtool-53.1.jar
-<<<<<<< HEAD
       - name: Basic validation of syntax of main.wdl using womtool
         run: |
           java -jar womtool-53.1.jar validate main.wdl
       - name: Run the pipeline using example inputs.json
         run: |
           java -jar cromwell-53.1.jar run main.wdl -i testdata/inputs.json -o options.json
-=======
-      - name: Run lifebit-ai/spammer-wdl
-        run: |
-          java -jar cromwell-53.1.jar run main.wdl -i inputs.json -o options.json
->>>>>>> adding-processes-C-D
 
 
