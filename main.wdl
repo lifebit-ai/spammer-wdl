@@ -21,6 +21,14 @@ workflow spammer_wdl {
       input:
       input_file = task_A.output_file_1
   }
+  call task_C {
+      input:
+      input_file = task_A.output_file_2
+  }
+  call task_D {
+      input:
+      input_file = task_A.output_file_3
+  }
 }
 
 
@@ -36,7 +44,7 @@ task task_A {
         Int taskATimeBetweenFileCreationInSecs
     }
     command <<<
-        # Simulate the time the tasks takes to finish
+        # Simulate the time the task takes to finish
         timeToWait=$(shuf -i ~{taskATimeRange} -n 1)
         
         for i in {1..~{numberFilesFortaskA}}
@@ -49,9 +57,8 @@ task task_A {
     output{
         Array[File] output_files = glob("*.txt")
         File output_file_1 = "file_1.txt"
-    }
-    runtime {
-        docker:"quay.io/lifebitai/ubuntu:18.10"
+        File output_file_2 = "file_2.txt"
+        File output_file_3 = "file_2.txt"
     }
 }
 
@@ -68,13 +75,50 @@ task task_B {
         Int processBWriteToDiskMb 
     }
     command <<<
-    # Simulate the time the tasks takes to finish
+    # Simulate the time the task takes to finish
     timeToWait=$(shuf -i ~{taskBTimeRange} -n 1)
     
-    sleep \$timeToWait
+    sleep $timeToWait
     dd if=/dev/urandom of=newfile bs=1M count=~{processBWriteToDiskMb}
     >>>
-    runtime {
-        docker:"quay.io/lifebitai/ubuntu:18.10"
-    }
 }
+
+
+
+# -------
+# Task C
+# -------
+
+task task_C {
+    input {
+        File input_file
+        String taskCTimeRange
+    }
+    command <<<
+    # Simulate the time the task takes to finish
+    timeToWait=$(shuf -i ~{taskCTimeRange} -n 1)
+    
+    sleep $timeToWait
+    >>>
+}
+
+
+
+# -------
+# Task D
+# -------
+
+task task_D {
+    input {
+        File input_file
+        String taskDTimeRange
+    }
+    command <<<
+    # Simulate the time the task takes to finish
+    timeToWait=$(shuf -i ~{taskDTimeRange} -n 1)
+    
+    sleep $timeToWait
+    >>>
+}
+
+
