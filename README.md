@@ -56,9 +56,9 @@ The resulting file can then be pasted into a tool like `Graphviz online`: https:
 
 ## Run the pipeline
 
-To run the pipeline:
+To run the pipeline (using example inputs.json):
 ```
-$ java -jar ~/cromwell/cromwell-53.1.jar run main.wdl -i inputs.json -o options.json
+$ java -jar ~/cromwell/cromwell-53.1.jar run main.wdl -i testdata/inputs.json -o options.json
 ```
 
 
