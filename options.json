@@ -1,0 +1,6 @@
+{
+    "final_workflow_outputs_dir": "results",
+    "default_runtime_attributes": {
+        "docker": "quay.io/lifebitai/ubuntu:18.10"
+    }
+}
