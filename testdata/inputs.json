@@ -1,4 +1,5 @@
 {
+  "spammer_wdl.numberRepetitionsFortaskA": 10,
   "spammer_wdl.task_A.taskATimeRange": "1-2",
   "spammer_wdl.task_A.numberFilesFortaskA": 3,
   "spammer_wdl.task_A.taskATimeBetweenFileCreationInSecs": 0,

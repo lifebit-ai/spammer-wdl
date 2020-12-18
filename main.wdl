@@ -16,19 +16,29 @@ version 1.0
 
 workflow spammer_wdl {
 
-  call task_A
-  call task_B {
-      input:
-      input_file = task_A.output_file_1
-  }
-  call task_C {
-      input:
-      input_file = task_A.output_file_2
-  }
-  call task_D {
-      input:
-      input_file = task_A.output_file_3
-  }
+    input {
+        Int numberRepetitionsFortaskA
+    }
+
+    Array[Int] scatter_range = range(numberRepetitionsFortaskA)
+    
+    scatter(i in scatter_range){
+        call task_A
+        call task_B {
+            input:
+            input_file = task_A.output_file_1
+        }
+        call task_C {
+            input:
+            input_file = task_A.output_file_2
+        }
+        call task_D {
+            input:
+            input_file = task_A.output_file_3
+        }
+
+    }
+
 }
 
 
@@ -58,7 +68,7 @@ task task_A {
         Array[File] output_files = glob("*.txt")
         File output_file_1 = "file_1.txt"
         File output_file_2 = "file_2.txt"
-        File output_file_3 = "file_2.txt"
+        File output_file_3 = "file_3.txt"
     }
 }
 
