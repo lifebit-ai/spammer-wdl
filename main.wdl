@@ -65,10 +65,12 @@ task task_A {
         sleep $timeToWait
     >>>
     output{
-        Array[File] output_files = glob("*.txt")
         File output_file_1 = "file_1.txt"
         File output_file_2 = "file_2.txt"
         File output_file_3 = "file_3.txt"
+    }
+    runtime {
+        docker: "quay.io/lifebitai/ubuntu:18.10"
     }
 }
 
@@ -91,6 +93,9 @@ task task_B {
     sleep $timeToWait
     dd if=/dev/urandom of=newfile bs=1M count=~{processBWriteToDiskMb}
     >>>
+    runtime {
+        docker: "quay.io/lifebitai/ubuntu:18.10"
+    }
 }
 
 
@@ -110,6 +115,9 @@ task task_C {
     
     sleep $timeToWait
     >>>
+    runtime {
+        docker: "quay.io/lifebitai/ubuntu:18.10"
+    }
 }
 
 
@@ -129,6 +137,9 @@ task task_D {
     
     sleep $timeToWait
     >>>
+    runtime {
+        docker: "quay.io/lifebitai/ubuntu:18.10"
+    }
 }
 
 
